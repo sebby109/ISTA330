@@ -6,5 +6,16 @@ output: 3
 */
 
 var median = function(input) {
+    var retval = 0;
+    var get_len = input.length;
 
+    if(get_len % 2 == 0){
+        pos1 = get_len / 2;
+        pos2 = pos1 + 1;
+        retval = (pos1 + pos2) / 2;
+    }
+    else{
+        retval = input[(get_len - 1) / 2];
+    }
+    return retval;
 };
