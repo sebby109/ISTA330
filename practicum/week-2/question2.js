@@ -12,6 +12,8 @@ Example: input: cookies = [3, 5, 8] , extraCookies = 8
  var canGetEqualCookies = function(cookies, extraCookies) {
         var greatest_num_cookie = 0;
         var current_extra = extraCookies;
+        var final_check = [];
+
         for(i = 0; i < cookies.length; i++){
                 if (cookies[i] > greatest_num_cookie){
                         greatest_num_cookie = cookies[i];
@@ -22,10 +24,17 @@ Example: input: cookies = [3, 5, 8] , extraCookies = 8
                 if(current_extra <= 0){
                         return false;
                 }
-                else if(cookies[i] < greatest_num_cookie){
-                        current_extra = current_extra - cookies[i]
+
+                if(current_extra < (greatest_num_cookie - cookies[j])){
+                        return false;
                 }
+
+                else if(cookies[j] < greatest_num_cookie){
+                        current_extra = current_extra - (greatest_num_cookie - cookies[j])
+                }
+
         }
+
 
         return true;
     
