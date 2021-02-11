@@ -12,17 +12,16 @@ output: 4
 
 var maxSumOfMins = function(input) {
        var num_tuples = [];
+       var retval = 0;
 
        for(i=0; i<input.length-2; i++){
               num_tuples.push([input[i], input[i+2]]);
+              
        }
 
-
-       //  Confused if the input would always be an array of 
-       //  size 4, so just assumed it would be.
-       var min1 = Math.min(num_tuples[0][0], num_tuples[0][1]);
-       var min2 = Math.min(num_tuples[1][0], num_tuples[1][1]);
-       var retval = min1 + min2;
+       for(j=0; j<num_tuples.length; j++){
+              retval += Math.min(num_tuples[j][0], num_tuples[j][1]);
+       }
 
        return retval;
 };
