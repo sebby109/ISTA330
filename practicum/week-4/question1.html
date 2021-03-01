@@ -6,9 +6,10 @@
     <title>Document</title>
 
     <style>
-    .column{flex: 35%; padding: 10px;}
+    .imgs{display: inline-block;}
     .row{display: flex; float: right;}
-
+    p {text-align: center;}
+    .bottom {position: relative;}
     </style>
 
 </head>
@@ -73,25 +74,36 @@
                 if (i == 1){
                     cur_set = img_set2;
                 }
-                for (let j =0; j < 4; j++){
-                    if (j == 0){
-                        flowers_div.innerHTML += '<div class="row">';
-                        flowers_div.innerHTML += '<div class="column">' +
-                        '<img src="images/' + cur_set[j].picture + '" alt="' + cur_set[j].name
-                        + '"></div>';
-                    }
-                    else if (j == 3){
-                        flowers_div.innerHTML += '<div class="column">' +
-                        '<img src="images/' + cur_set[j].picture + '" alt="' + cur_set[j].name
-                        + '"></div></div>';
-                    }
-                    else{
-                        flowers_div.innerHTML += '<div class="column">' +
-                        '<img src="images/' + cur_set[j].picture + '" alt="' + cur_set[j].name
-                        + '"></div>';
-                    }
+                if (i == 0){
+                    flowers_div.innerHTML += '<div class="imgs"> <img src="images/' +
+                    cur_set[0].picture + '"  /> <p>'+ cur_set[0].name + '</p></div>';
+
+                    flowers_div.innerHTML += '<div class="imgs"> <img src="images/' +
+                    cur_set[1].picture + '"  /> <p>'+ cur_set[1].name + '</p></div>';
+
+                    flowers_div.innerHTML += '<div class="imgs"> <img src="images/' +
+                    cur_set[2].picture + '"  /> <p>'+ cur_set[2].name + '</p></div>';
+
+                    flowers_div.innerHTML += '<div class="imgs"> <img src="images/' +
+                    cur_set[3].picture +  '"  /> <p>'+ cur_set[3].name + '</p></div>';
+                }
+                else{
+                    flowers_div.innerHTML += '<div class="bottom">';
+                    flowers_div.innerHTML += '<div class="imgs"> <img src="images/' +
+                    cur_set[0].picture + '"  /> <p>'+ cur_set[0].name + '</p></div>';
+
+                    flowers_div.innerHTML += '<div class="imgs"> <img src="images/' +
+                    cur_set[1].picture + '"  /> <p>'+ cur_set[1].name + '</p></div>';
+
+                    flowers_div.innerHTML += '<div class="imgs"> <img src="images/' +
+                    cur_set[2].picture + '"  /> <p>'+ cur_set[2].name + '</p></div>';
+
+                    flowers_div.innerHTML += '<div class="imgs"> <img src="images/' +
+                    cur_set[3].picture + '"  /> <p>'+ cur_set[3].name + '</p></div>';
 
                 }
+
+
             }
 
 
