@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <style>
+    .column{flex: 35%; padding: 10px;}
+    .row{display: flex; float: right;}
+
+    </style>
+
 </head>
 <body>
     <div id="question">
@@ -17,6 +24,8 @@
     <div id='flowersDiv'>
 
     </div>
+
+
     <script>
         /*
            Using the array flowers below, 
@@ -51,6 +60,45 @@
              rose,
              waterlily
        ];
+
+        let flowers_div = document.getElementById("flowersDiv");
+
+        function make_rows(){
+            let img_set1 = flowers.slice(0, 4);
+            let img_set2 = flowers.slice(4,8);
+
+
+            for (let i = 0; i < 2; i++){
+                let cur_set = img_set1;
+                if (i == 1){
+                    cur_set = img_set2;
+                }
+                for (let j =0; j < 4; j++){
+                    if (j == 0){
+                        flowers_div.innerHTML += '<div class="row">';
+                        flowers_div.innerHTML += '<div class="column">' +
+                        '<img src="images/' + cur_set[j].picture + '" alt="' + cur_set[j].name
+                        + '"></div>';
+                    }
+                    else if (j == 3){
+                        flowers_div.innerHTML += '<div class="column">' +
+                        '<img src="images/' + cur_set[j].picture + '" alt="' + cur_set[j].name
+                        + '"></div></div>';
+                    }
+                    else{
+                        flowers_div.innerHTML += '<div class="column">' +
+                        '<img src="images/' + cur_set[j].picture + '" alt="' + cur_set[j].name
+                        + '"></div>';
+                    }
+
+                }
+            }
+
+
+            
+    }
+    make_rows();
+
     </script>
 </body>
 </html>
